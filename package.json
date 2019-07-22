@@ -16,6 +16,6 @@
     },
     "dependencies": {
         "vue": "^2.5.0",
-        "vue-resumable": "^1.0.108"
+        "vue-simple-uploader": "^0.7.1"
     }
 }
