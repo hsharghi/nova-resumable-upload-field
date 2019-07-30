@@ -1,20 +1,35 @@
+<template>
+    <default-field :field="field" :errors="errors">
+        <template slot="field">
+            <uploader-component
+                    :id="field.name"
+                    class="w-full"
+                    :class="errorClasses"
+                    v-model="value"
+            >
+            </uploader-component>
+        </template>
+    </default-field>
+</template>
 
 <script>
-    import { FormField, HandlesValidationErrors } from 'laravel-nova';
+    import {FormField, HandlesValidationErrors} from 'laravel-nova';
     // import uploader from 'vue-simple-uploader'
     // Vue.use(uploader);
 
-export default {
-    mixins: [FormField, HandlesValidationErrors],
+    export default {
+        mixins: [FormField, HandlesValidationErrors],
 
-        props: ['uploadUrl', 'apiUrl', 'resourceName', 'resourceId', 'field'],
-        data () {
+        props: ['resourceName', 'resourceId', 'field'],
+        data() {
             return {
+                apiUrl: null,
+                uploadUrl: null,
                 options: {
                     target: this.apiUrl + this.uploadUrl,
                     testChunks: false,
-                    headers : {
-                        'Accept' : 'application/json',
+                    headers: {
+                        'Accept': 'application/json',
                     }
                 },
                 attrs: {
@@ -42,13 +57,13 @@ export default {
             },
         },
         created() {
-            console.log(this.apiUrl + this.uploadUrl)
+            console.log('target' + this.apiUrl + this.uploadUrl)
         },
-    methods: {
+        methods: {
 
             fill: function (formData) {
-            formData.append(this.field.attribute, this.value || '')
-        },
+                formData.append(this.field.attribute, this.value || '')
+            },
 
             handleChange: function (value) {
                 // this.fileUri = value;
@@ -62,17 +77,11 @@ export default {
                 //     : "";
                 // this.imagePreviewData = originalImage;
                 // this.fileUri = originalImage;
+            },
         },
-    },
-}
+    }
 </script>
 
-
-<template>
-    <div>
-        <uploader-component></uploader-component>
-    </div>
-</template>
 
 <style>
     .uploader-example {
@@ -82,9 +91,11 @@ export default {
         font-size: 12px;
         box-shadow: 0 0 10px rgba(0, 0, 0, .4);
     }
+
     .uploader-example .uploader-btn {
         margin-right: 4px;
     }
+
     .uploader-example .uploader-list {
         max-height: 440px;
         overflow: auto;
