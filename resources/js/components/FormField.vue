@@ -4,8 +4,8 @@
     // import uploader from 'vue-simple-uploader'
     // Vue.use(uploader);
 
-    export default {
-        mixins: [FormField, HandlesValidationErrors],
+export default {
+    mixins: [FormField, HandlesValidationErrors],
 
         props: ['uploadUrl', 'apiUrl', 'resourceName', 'resourceId', 'field'],
         data () {
@@ -44,11 +44,11 @@
         created() {
             console.log(this.apiUrl + this.uploadUrl)
         },
-        methods: {
+    methods: {
 
             fill: function (formData) {
-                formData.append(this.field.attribute, this.value || '')
-            },
+            formData.append(this.field.attribute, this.value || '')
+        },
 
             handleChange: function (value) {
                 // this.fileUri = value;
@@ -62,9 +62,9 @@
                 //     : "";
                 // this.imagePreviewData = originalImage;
                 // this.fileUri = originalImage;
-            },
         },
-    }
+    },
+}
 </script>
 
 
