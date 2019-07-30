@@ -1,7 +1,7 @@
 
 <script>
     import { FormField, HandlesValidationErrors } from 'laravel-nova';
-    import uploader from 'vue-simple-uploader'
+    // import uploader from 'vue-simple-uploader'
     // Vue.use(uploader);
 
     export default {
@@ -69,16 +69,9 @@
 
 
 <template>
-    <uploader :options="options" class="uploader-example">
-        <uploader-unsupport></uploader-unsupport>
-        <uploader-drop>
-            <p>Drop files here to upload or</p>
-            <uploader-btn :attrs="attrs">select files</uploader-btn>
-            <!--<uploader-btn :attrs="attrs">select images</uploader-btn>-->
-            <uploader-btn :directory="true">select folder</uploader-btn>
-        </uploader-drop>
-        <uploader-list></uploader-list>
-    </uploader>
+    <div>
+        <uploader-component></uploader-component>
+    </div>
 </template>
 
 <style>

@@ -1,14 +1,16 @@
 <template>
-    <uploader :options="options" class="uploader-example">
-        <uploader-unsupport></uploader-unsupport>
-        <uploader-drop>
-            <p>Drop files here to upload or</p>
-            <uploader-btn :attrs="attrs">select files</uploader-btn>
-            <!--<uploader-btn :attrs="attrs">select images</uploader-btn>-->
-            <uploader-btn :directory="true">select folder</uploader-btn>
-        </uploader-drop>
-        <uploader-list></uploader-list>
-    </uploader>
+    <div>
+        <uploader :options="options" class="uploader-example">
+            <uploader-unsupport></uploader-unsupport>
+            <uploader-drop>
+                <p>Drop files here to upload or</p>
+                <uploader-btn :attrs="attrs">select files</uploader-btn>
+                <!--<uploader-btn :attrs="attrs">select images</uploader-btn>-->
+                <uploader-btn :directory="true">select folder</uploader-btn>
+            </uploader-drop>
+            <uploader-list></uploader-list>
+        </uploader>
+    </div>
 </template>
 
 <script>
@@ -30,6 +32,7 @@
         },
         created() {
             console.log(this.apiUrl + this.uploadUrl)
+            console.log("YOOHHHAAHAA")
         }
     }
 </script>
